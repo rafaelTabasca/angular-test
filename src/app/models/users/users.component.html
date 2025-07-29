@@ -2,7 +2,7 @@
   <h1>Users</h1>
   <mat-form-field class="search">
     <mat-label>Search by Phone</mat-label>
-    <input (input)="onSearch($event)" matInput placeholder="Ex. Pizza" value="">
+    <input (input)="onSearch($event)" matInput placeholder="Phone" value="">
   </mat-form-field>
 
   <div class="users-list" *ngIf="((usersFiltered.users.length)  && !usersFiltered.isLoading)">
