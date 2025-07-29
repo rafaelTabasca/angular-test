@@ -1,0 +1,21 @@
+<h1>Add Users</h1>
+<mat-card>
+  <mat-card-content>
+    <form class="add-user-form" [formGroup]="userForm" (ngSubmit)="submit()">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone </mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+      <button [disabled]="!userForm.valid || (loading$ | async)" mat-raised-button color="primary" type="submit">Add
+        User</button>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,17 @@
+<div class="users-container">
+  <h1>Users</h1>
+  <mat-form-field class="search">
+    <mat-label>Search by Phone</mat-label>
+    <input (input)="onSearch($event)" matInput placeholder="Ex. Pizza" value="">
+  </mat-form-field>
+
+  <div class="users-list" *ngIf="((usersFiltered.users.length)  && !usersFiltered.isLoading)">
+    <app-user-card *ngFor="let user of usersFiltered.users" [user]="user" />
+  </div>
+  <div class="loading" *ngIf="usersFiltered.isLoading">
+    <mat-spinner [diameter]="30"></mat-spinner>
+  </div>
+  <div class="no-users" *ngIf="!usersFiltered.isLoading && usersFiltered.users.length === 0">
+    <p>No users found</p>
+  </div>
+</div>

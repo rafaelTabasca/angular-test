@@ -1,0 +1,29 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/users" routerLinkActive="active" ariaCurrentWhenActive="page" href="#">Users</a>
+      <a mat-list-item routerLink="/add-users" routerLinkActive="active" ariaCurrentWhenActive="page" href="#">Add
+        Users</a>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <div class="counter">
+      <div>
+        <mat-chip (click)="counterStore.increment()">+</mat-chip>
+      </div>
+      <p>Counter: {{ counterStore.counter() }}</p>
+      <div>
+        <mat-chip (click)="counterStore.decrement()">-</mat-chip>
+      </div>
+    </div>
+    <div>
+      <mat-chip (click)="counterStore.reset()">Reset</mat-chip>
+    </div>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <ng-content></ng-content>
+    <!-- Add Content Here -->
+  </mat-sidenav-content>
+</mat-sidenav-container>

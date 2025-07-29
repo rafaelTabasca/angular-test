@@ -1,0 +1,35 @@
+.sidenav-container {
+  height: 100%;
+  display: flex;
+}
+
+.sidenav {
+  width: 230px;
+  position: relative;
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.mat-drawer-content {
+  width: 100%;
+  margin: 0!important;
+  padding: 20px 50px;
+}
+.counter {
+  display: flex;
+  padding: 5px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.counter > p {
+  margin: 0;
+}
