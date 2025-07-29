@@ -5,14 +5,39 @@
       <mat-form-field>
         <mat-label>Name</mat-label>
         <input matInput formControlName="name">
+        <ng-container *ngIf="name?.touched && name?.errors?.['required']">
+          <mat-error>
+            Name is required.
+          </mat-error>
+        </ng-container>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Email</mat-label>
         <input matInput formControlName="email">
+        <ng-container *ngIf="email?.touched && email?.errors?.['required']">
+          <mat-error>
+            Email is required.
+          </mat-error>
+        </ng-container>
+        <ng-container *ngIf="email?.touched && email?.errors?.['email']">
+          <mat-error>
+            Invalid email format.
+          </mat-error>
+        </ng-container>
       </mat-form-field>
       <mat-form-field>
         <mat-label>Phone </mat-label>
         <input matInput formControlName="phone">
+        <ng-container *ngIf="phone?.touched && phone?.errors?.['required']">
+          <mat-error>
+            Phone is required.
+          </mat-error>
+        </ng-container>
+        <ng-container *ngIf="phone?.touched && phone?.errors?.['pattern']">
+          <mat-error>
+            Invalid phone format.
+          </mat-error>
+        </ng-container>
       </mat-form-field>
       <button [disabled]="!userForm.valid || (loading$ | async)" mat-raised-button color="primary" type="submit">Add
         User</button>

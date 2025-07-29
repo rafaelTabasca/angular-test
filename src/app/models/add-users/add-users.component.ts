@@ -7,7 +7,7 @@ import { ReactiveFormsModule, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { LoadingService } from '../../services/loading/loading.service';
 import { Observable } from 'rxjs';
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, NgIf } from '@angular/common';
 
 
 @Component({
@@ -15,7 +15,7 @@ import { AsyncPipe } from '@angular/common';
   templateUrl: './add-users.component.html',
   styleUrl: './add-users.component.css',
   standalone: true,
-  imports: [MatCardModule, MatInputModule, MatButton, ReactiveFormsModule, AsyncPipe, MatSnackBarModule]
+  imports: [MatCardModule, MatInputModule, MatButton, ReactiveFormsModule, AsyncPipe, MatSnackBarModule, NgIf]
 })
 
 export class AddUsersComponent {
@@ -44,5 +44,16 @@ export class AddUsersComponent {
 
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
+  }
+
+  get name() {
+    return this.userForm.get('name');
+  }
+
+   get email() {
+    return this.userForm.get('email');
+  }
+   get phone() {
+    return this.userForm.get('phone');
   }
 }
