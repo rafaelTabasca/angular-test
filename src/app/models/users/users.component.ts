@@ -36,7 +36,7 @@ export class UsersComponent {
     this.users$?.subscribe(val => {
       this.usersFiltered = {
         ...val,
-        users: val.error ? [] : val.users.filter((v) => this.sanitizePhone(v.phone).includes(val.filter.query) || v.name.toLocaleLowerCase().includes(val.filter.query.toLocaleLowerCase()))
+        users: val.error ? [] : val.users.filter((v) =>  this.sanitizePhone(v.phone).includes(this.sanitizePhone(val.filter.query)) || v.name.toLocaleLowerCase().includes(val.filter.query.toLocaleLowerCase()))
       }
     })
   }
