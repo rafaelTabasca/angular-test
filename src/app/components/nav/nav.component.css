@@ -2,7 +2,13 @@
   height: 100%;
   display: flex;
 }
-
+.menu-link{
+  text-decoration: none;
+  color: inherit;
+}
+.reset {
+  justify-self: center;
+}
 .sidenav {
   width: 230px;
   position: relative;

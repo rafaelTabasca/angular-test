@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
-    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="(isHandset$ | async) === false">
-    <mat-toolbar>Menu</mat-toolbar>
+  <mat-sidenav #drawer class="sidenav" fixedInViewport [attr.role]="'navigation'"
+    [mode]="'side'" [opened]="true">
+    <mat-toolbar> <a class="menu-link" routerLink="/"  href="#" >Menu</a></mat-toolbar>
     <mat-nav-list>
       <a mat-list-item routerLink="/users" routerLinkActive="active" ariaCurrentWhenActive="page" href="#">Users</a>
       <a mat-list-item routerLink="/add-users" routerLinkActive="active" ariaCurrentWhenActive="page" href="#">Add
@@ -9,15 +9,17 @@
     </mat-nav-list>
     <mat-divider></mat-divider>
     <div class="counter">
-      <div>
-        <mat-chip (click)="counterStore.increment()">+</mat-chip>
-      </div>
-      <p>Counter: {{ counterStore.counter() }}</p>
-      <div>
+        <div>
         <mat-chip (click)="counterStore.decrement()">-</mat-chip>
       </div>
+      <p>Counter: {{ counterStore.counter() }}</p>
+   
+
+       <div>
+        <mat-chip (click)="counterStore.increment()">+</mat-chip>
+      </div>
     </div>
-    <div>
+    <div class="reset">
       <mat-chip (click)="counterStore.reset()">Reset</mat-chip>
     </div>
 
